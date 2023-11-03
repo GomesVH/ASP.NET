@@ -1,0 +1,14 @@
+﻿@*
+    estabelecer a relação desta view com o model
+*@
+
+@model Colab
+@{
+    @*aqui esta o nome da view*@
+    ViewData["Title"] = "Agradecimento";
+}
+
+@* construir a view hmtl*@
+
+<a asp-action = "Index">Listar Registros</a>
+<h2>Brigadão, @Model.Nome, @Model.Idade</h2>

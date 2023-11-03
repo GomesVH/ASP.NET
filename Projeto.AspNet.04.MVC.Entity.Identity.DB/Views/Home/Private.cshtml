@@ -1,0 +1,34 @@
+﻿@*
+    definir a relação entre a view e o model: 
+    ------NÃO HÁ MODEL ESPECIFICO PARA ESTA VIEW ---------
+    No entanto, a action - que ainda será criada e se chamará Private
+      () - vai retornar um objeto do tipo string; que neste contexto 
+      pode ser considerado um "model" com a qual esta view se relacionará.
+*@
+
+@model string
+
+@{
+    ViewData["Title"] = "View com Auth.";
+}
+
+@*definir estrutura html necessaria*@
+
+<h3 class="bg-info text-white">@ViewData["Title"]</h3>
+<br />
+<br />
+
+@Model
+<br />
+<br />
+<br />
+
+@* recuperaro o nome do usuario que esta acessando a área restrita e exibi-lo, em tela*@
+
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    @*este é o link de chamada da action Logout()*@
+    <a asp-action="Account                                                                    asp-action="">
+
+    </a>
+}

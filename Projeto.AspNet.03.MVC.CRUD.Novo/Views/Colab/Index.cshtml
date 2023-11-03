@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Colab>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*criar a estrutura html para exibir os registros*@
+
+<a asp-action = "Create">Criar Registro</a>
+
+<h2>Listando Registros</h2>
+
+<table style = "width:80%">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Salario</th>
+            <th>Departamento</th>
+            <th>Genero</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Colab r in Model){
+        <tr>
+            <td>@r.Nome</td>
+            <td>@r.Idade</td>
+            <td>@r.Salario</td>
+            <td>@r.Departamento</td>
+            <td>@r.Genero</td>
+            <td>
+               <button><a asp-action = "Update" asp-route-Identificador = "@r.Nome">
+                    Atualizar
+                        </a>
+                    </button>
+                    
+            </td>
+            <td>
+                <form asp-action = "Delete" 
+                asp-route-Identificador = "@r.Nome"
+                method = "post">
+                    <button type = "submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

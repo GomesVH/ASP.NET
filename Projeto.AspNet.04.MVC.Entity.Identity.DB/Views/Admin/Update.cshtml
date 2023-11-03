@@ -1,0 +1,38 @@
+﻿@*
+    definir a "comunicação" entre a view e seu respectivo model - AppUser. Este model será usada, novamente, porque o registro selecionado/identificado para a alteração/atualização tem origem na base evolta para a mesma base. AppUser é a representação da base para a aplicação
+*@
+
+@model AppUser
+
+@{
+    ViewData["Title"] = "Atualizar/Alterar";
+}
+
+@*definir a estrutura html necessária*@
+
+<h3 class="bg-info text-white">@ViewData["Title"]</h3>
+
+<a asp-action="Index" class="btn btn-secondary">Listar</a>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Update" method="post">
+    <div class="form-group">
+        <label asp-for="Id">Id</label>
+        <input type="text" asp-for="Id" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input type="email" asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" name="password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Atualizar
+    </button>
+</form>

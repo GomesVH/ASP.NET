@@ -1,0 +1,66 @@
+﻿@*
+    esta view se "comunicará" com a action Insercao() 
+    - estabelecida no ColaboradorController()
+*@
+
+@*
+    fazer referencia - a partir da view - ao model
+*@
+
+@model Colab
+
+@*abaixo esta o nome da view*@
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* abaixo, serão implementadas algumas intruções importantes:
+    - definir uma estrutura html para o formulario
+    - "linkar" as views Insercao e Index
+*@
+
+<a asp-action="Index">Listar Registros</a>
+
+<h2>View Inserção de Dados</h2>
+
+<form method="post">
+    <p>
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" />
+        <span asp-validation-for = "Nome"></span>
+    </p>
+
+    <p>
+        <label asp-for="Idade">Idade</label>
+        <input asp-for="Idade" />
+        <span asp-validation-for="Idade"></span>
+    </p>
+
+    <p>
+        <label asp-for="Salario">Salario</label>
+        <input asp-for="Salario" />
+        <span asp-validation-for="Salario"></span>
+    </p>
+
+    <p>
+        <label asp-for="Departamento">Departamento</label>
+        <select asp-for="Departamento">
+            <option value="Dev">Dev</option>
+            <option value="Rh">Rh</option>
+            <option value="Financeiro">Financeiro</option>
+        </select>
+    </p>
+
+    <p>
+        <label asp-for="Genero">Genero</label>
+        <input type="radio" asp-for="Genero" value="F" />Feminino
+        <input type="radio" asp-for="Genero" value="M" />Masculino
+        <input type="radio" asp-for="Genero" value="O" />Outros
+        <span asp-validation-for="Genero"></span>
+    </p>
+
+    <p>
+        <button type="submit">Cadastrar</button>
+    </p>
+</form>
